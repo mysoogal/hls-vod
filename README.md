@@ -66,3 +66,18 @@ Limitations
 -----------
 - Currently only supports encoding one stream at a time (only one user at a time).
 - Currently search paths must lie under the root path
+
+
+faster way to startup in terminal 
+============
+- create empty airplay txt file located @ nano /usr/bin/airplay
+- paste the following
+-
+#! /bin/bash
+cd ~/Documents/airplay && 
+nodejs airplay.js --port 9092 --transcoder-type ffmpeg --transcoder-path /usr/bin/ffmpeg --root-path /home/YOUR-USER-NAME/Downloads 
+
+- create airplay folder under /documents/airplay and put all files under this folder.
+- chmod chmod +x /usr/bin/airplay
+- replace Your-user-name with your account name.
+- enter in terminal airplay and visit 127.0.0.1:9092/static 
