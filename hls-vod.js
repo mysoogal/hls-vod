@@ -66,7 +66,7 @@ var spawnNewProcess = function(file, playlistPath) {
 		var playlistPath = 'stream.m3u8';
 		var outputUrl = 'stream-#####.ts';
 		var tsOutputPath = 'stream-#####.ts';
-		var args = ['-I', 'dummy', file, 'vlc://quit', '--sout=#transcode{width=' + targetWidth + ',vcodec=h264,vb=' + videoBitrate + ',venc=x264{aud,profile=baseline,level=30,preset=superfast},acodec=mp3,ab=128,channels=2,audio-sync}:std{access=livehttp{seglen=10,delsegs=false,numsegs=0,index=' + playlistPath + ',index-url=' + outputUrl + '},mux=ts{use-key-frames},dst=' + tsOutputPath + '}'];
+		var args = ['-I', 'dummy', file, 'cvlc://quit', '--sout=#transcode{width=' + targetWidth + ',vcodec=h264,vb=' + videoBitrate + ',venc=x264{aud,profile=baseline,level=30,preset=superfast},acodec=mp3,ab=128,channels=2,audio-sync}:std{access=livehttp{seglen=10,delsegs=false,numsegs=0,index=' + playlistPath + ',index-url=' + outputUrl + '},mux=ts{use-key-frames},dst=' + tsOutputPath + '}'];
 	}
 
 	var encoderChild = childProcess.spawn(transcoderPath, args, {cwd: outputPath});
