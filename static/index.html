@@ -16,7 +16,8 @@
 <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-144x144.png" />
 <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png" />
 <link rel="stylesheet" type="text/css" href="main.css" />-->
-
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">
 body {
 	background-color: #eee;
@@ -33,9 +34,9 @@ a, a:visited, a:active {
 }
 #file-list li {
 	cursor: pointer;
-	background: linear-gradient(to bottom, #fff 0%, #eee 48%, #ddd 52%, #ccc 100%);
+ 
 	border: 1px solid #ccc;
-	text-shadow: 1px 1px #ccc;
+ 
 	color: #000;
 	font-size: 1.2em;
 	padding: .2em .5em;
@@ -48,10 +49,10 @@ a, a:visited, a:active {
 	padding-right: .7em;
 }
 #dir-header {
-	background: linear-gradient(to bottom, #fff 0%, #eee 48%, #ddd 52%, #ccc 100%);
-	border: 1px solid #ccc;
-	text-shadow: 1px 1px #ccc;
-	color: #c00;
+ 
+ 
+ 
+	color: Black;
 	font-size: 1.2em;
 	padding: .2em .5em;
 	overflow: hidden;
@@ -146,7 +147,7 @@ var videoPlay = function(path) {
 
 
 var browseTo = function(path) {
-	$('#file-list').empty().append($('<li/>').text('Loading...'));
+	$('#file-list').empty().append($('<li/>LL').text('Loading...'));
 	
 	$('#thumbnail-viewer .x-button').click(function() {
 		$(this).parent().fadeOut(200);
@@ -166,7 +167,7 @@ var browseTo = function(path) {
 			$('#file-list').append(back);
 
 			$.each(data.files, function(index, file) {
-				var elem = $('<li/>');
+				var elem = $('<br><li/>');
 				elem.text(file.name);
 
 				switch(file.type) {
@@ -270,29 +271,61 @@ $(function() {
 
 <body>
 
+<!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">HLS SERVER</a>
+        </div>
+       
+      </div>
+    </div>
+
+    <div class="container">
+
+       <br>
+	<br>
+<br>
+
 <audio></audio>
 
 <video controls></video>
 
-<div id="dir-header"></div>
-<ul id="file-list">
-</ul>
 
-<p><span id="settings-btn">Settings</span></p>
+<div class="panel panel-default">
+  <div class="panel-body">
+<div id="dir-header"></div>
+  </div>
+</div>
+
+
+ <div class="panel panel-default">
+  <div class="panel-body">
+<ul id="file-list"></ul>
+  </div>
+</div>
+ 
+ 
+
+   
+
+<ul><p><span id="settings-btn"><button type="button" class="btn btn-default">Settings</button></span></p></ul>
 <div id="settings-container">
 <form>
 	<ul>
-	<li>Bitrate:
+	<p>Bitrate:
 		<select name="videoBitrate">
 			<option value="300">300</option>
-			<option value="600">600</option>
-			<option value="1000">1000</option>
-			<option value="1500">1500</option>
-			<option value="1800">1800</option>
-		</select>
-	</li>
+		</select></p>
+	 
 	
-	<li>Thumbnails <input type="checkbox" name="enableThumbnails" /></li>
+	<p>Thumbnails <input type="checkbox" name="enableThumbnails" /></p>
 	</ul>
 </form>
 </div>
@@ -301,5 +334,13 @@ $(function() {
 	<div class="x-button">X</div>
 	<img alt="" />
 </div>
+
+    </div> <!-- /container -->
+
+ <br>
+<br>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
+
 </body>
 </html>
